@@ -18,9 +18,17 @@ export function findById(items, id) {
         }
     }
 }
+const emptyPokedex = [];
+export function clearPokedex() {
+    localStorage.setItem('RESULTS', JSON.stringify(emptyPokedex));
+}
 
 export function getPokedex() {
     let pokedexString = localStorage.getItem('RESULTS') || '[]';
     const pokedex = JSON.parse(pokedexString);
     return pokedex;
+}
+
+export function setPokedex() {
+
 }
