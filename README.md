@@ -1,11 +1,13 @@
-## Making a plan
-1) Make a drawing of your app. Simple "wireframes"
-2) Once you have a drawing, name the HTML elements you'll need to realize your vision
-3) For each HTML element ask: Why do I need this?
-4) Once we know _why_ we need each element, think about how to implement the "Why" as a "How"
-5) Is there some state we need to initialize?
-6) Find all the 'events' (user clicks, form submit, etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?
-7) Think about how to validate each of your steps
-8) Consider your data model. What objects will you be using? What are the key/value pairs? What arrays do you need? What needs to live in local storage?
-9) Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.
+## Greg and Pete's plan for Pokemon Catcher
 
+1. Fill out the README
+2. Draw the basic pokemon picker site
+3. Create basic HTML page with ids
+4. Link data and assets provided for the lab
+5. Do the basic styling of the radio buttons etc.
+6. Grab DOM elements and import pokemon data in app.js
+7. Psuedo-code 4 functions: capturePokemon, encounterPokemon, getPokedex, and setPokedex
+8. Write tests for the above functions.
+9. Write the above functions.
+10. add event listener for our button.
+11. track times encountered and times captured for items during a single session in localStorage.
