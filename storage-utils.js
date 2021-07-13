@@ -11,6 +11,14 @@
 //      will pull pokemon from local storage
 // setPokedex
 //      set localStorage with rederRandomPokemon function
+export function findById(items, id) {
+    for (const item of items) {
+        if (item.id === id) {
+            return item;
+        }
+    }
+}
+
 export function getPokedex() {
     let pokedexString = localStorage.getItem('RESULTS') || '[]';
     const pokedex = JSON.parse(pokedexString);
