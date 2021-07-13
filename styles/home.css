@@ -1,1 +1,25 @@
-/* add home page styles here */
+.pokemon-options {
+  margin: 20px;
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.pokemon img {
+  height: 200px;
+  filter: grayscale(100%);
+}
+
+.pokemon img:hover {
+  filter: none;
+  border: 3px solid red;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + img {
+  border: 3px solid red;
+  filter: none;
+}
