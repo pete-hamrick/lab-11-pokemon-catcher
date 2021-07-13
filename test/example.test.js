@@ -1,33 +1,24 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
+import { getPokedex } from '../storage-utils.js';
 
 const test = QUnit.test;
 
-test('time to test a function', (expect) => {
+
+test('does getPokedex pull pokemon from localStorage as object?', (expect) => {
     //Arrange
-    // Set up your arguments and expectations
-    const expected = true;
-    
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = true;
+    const fakePokedex = [
+        { id: 1,
+            pokemon: 'bulbasaur'
+        }, 
+        {
+            id: 2,
+            pokemon: 'ivysaur'
+        }
+    ];
+    const fakePokedexString = JSON.stringify(fakePokedex);
+    localStorage.setItem('RESULTS', fakePokedexString);
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
-});// test('does renderRandomPokemon give you 3 different pokemon?', (expect) => {
-//     //Arrange
-//     // Set up your arguments and expectations
-//     const fakeResult = {
-
-//     }
-//     const expected = pokemon1 !== pokemon2 && pokemon1 !== pokemon3 && pokemon2 !== pokemon3;
-    
-//     //Act 
-//     // Call the function you're testing and set the result to a const
-//     const actual = renderRandomPokemon();
-
-//     //Expect
-//     // Make assertions about what is expected versus the actual result
-//     expect.deepEqual(actual, expected);
-// });
+    const pokedex = getPokedex();
+    expect.deepEqual(pokedex, fakePokedex);
+});
