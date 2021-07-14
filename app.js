@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 import pokemon from './data/pokemon.js';
-import { encounterPokemon } from './storage-utils.js';
+import { capturePokemon, clearPokedex, encounterPokemon } from './storage-utils.js';
 
 const pokemon1Radio = document.getElementById('pokemon1-radio');
 const pokemon1Image = document.getElementById('pokemon1-img');
@@ -55,6 +55,14 @@ renderRandomPokemon();
 // set event listeners 
 submitButton.addEventListener('click', ()=> {
     console.log('I know how to click a button');
+    const pokemonId = document.querySelector('input[type=radio]:checked');
+    capturePokemon(pokemonId);
+    if (totalPlays < 2){
+        renderRandomPokemon();
+    } else {
+        alert('You have played enough!');
+        clearPokedex();
+    }
     // get the chosen pokemon id (using input[type=radio]:checked selector)
     // update the preferred key on the chosen pokemon
 });
