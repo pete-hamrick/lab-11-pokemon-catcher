@@ -4,15 +4,15 @@ import { capturePokemon, encounterPokemon, findById, getPokedex } from './storag
 
 const pokemon1Radio = document.getElementById('pokemon1-radio');
 const pokemon1Image = document.getElementById('pokemon1-img');
-// const pokemon1Stats = document.getElementById('pokemon1-stats');
+const pokemon1Stats = document.getElementById('pokemon1-stats');
 
 const pokemon2Radio = document.getElementById('pokemon2-radio');
 const pokemon2Image = document.getElementById('pokemon2-img');
-// const pokemon2Stats = document.getElementById('pokemon2-stats');
+const pokemon2Stats = document.getElementById('pokemon2-stats');
 
 const pokemon3Radio = document.getElementById('pokemon3-radio');
 const pokemon3Image = document.getElementById('pokemon3-img');
-// const pokemon3Stats = document.getElementById('pokemon3-stats');
+const pokemon3Stats = document.getElementById('pokemon3-stats');
 
 
 const submitButton = document.getElementById('submit');
@@ -36,28 +36,33 @@ function renderRandomPokemon(){
     let pokemon1 = pokemon[randNum1];
     let pokemon2 = pokemon[randNum2];
     let pokemon3 = pokemon[randNum3];
+    const pokedex = getPokedex();
 
     pokemon1Radio.value = pokemon1.id;
     pokemon1Radio.checked = false;
     pokemon1Image.src = pokemon1.url_image;
     encounterPokemon(pokemon1.id);
-    // We want to show Pokemon appearances, and times captures
-    // assign pokemon1Appearances = [];
-    // we'll use getPokedex(start here, then use pokemon1 assign line below)
-    // assign pokemon1 = findByID(pokemon, item.id)
-    // pokemon1Appearances.push(pokemon1, pokemon)
-    // pokemon1Stats.textContent = `Appearances: ${pokemon1Appearances}`;
-
+    let Poke1 = findById(pokedex, pokemon1.id);
+    const p1Seen = Poke1.shown; 
+    pokemon1Stats.textContent = `Appearances: ${p1Seen}`;
+    
+    
     pokemon2Radio.value = pokemon2.id;
     pokemon2Radio.checked = false;
     pokemon2Image.src = pokemon2.url_image;
     encounterPokemon(pokemon2.id);
-
+    let Poke2 = findById(pokedex, pokemon2.id);
+    const p2Seen = Poke2.shown; 
+    pokemon2Stats.textContent = `Appearances: ${p2Seen}`;
+    
     pokemon3Radio.value = pokemon3.id;
     pokemon3Radio.checked = false;
     pokemon3Image.src = pokemon3.url_image;
     encounterPokemon(pokemon3.id);
-
+    let Poke3 = findById(pokedex, pokemon3.id);
+    const p3Seen = Poke3.shown; 
+    pokemon3Stats.textContent = `Appearances: ${p3Seen}`;
+    
     playsCounter.textContent = `Total plays: ${totalPlays}`;
 }
   // render the random pokemon
