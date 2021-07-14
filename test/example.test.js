@@ -1,5 +1,3 @@
-// IMPORT MODULES under test here:
-// import { example } from '../example.js';
 import { getPokedex, clearPokedex, encounterPokemon, capturePokemon } from '../storage-utils.js';
 
 
@@ -7,7 +5,6 @@ const test = QUnit.test;
 
 
 test('does getPokedex pull pokemon from localStorage as object?', (expect) => {
-    //Arrange
     const fakePokedex = [
         { id: 1,
             pokemon: 'bulbasaur'
