@@ -30,7 +30,6 @@ export function setPokedex(data) {
 }
 
 // encounterPokemon
-//      will fire during button click 
 //      will use our renderRandomPokemon function
 //      will increment times pokemon viewed
 export function encounterPokemon(id) {
