@@ -34,12 +34,8 @@ export function setPokedex(data) {
 //      will use our renderRandomPokemon function
 //      will increment times pokemon viewed
 export function encounterPokemon(id) {
-    // this will track encounters for future use
-    // get results from local storage
     let results = getPokedex();
-    // get the object id matching input id
     const pokemon = findById(results, id);
-    // if no matching object -- create one
     if (!pokemon){
         const newPokemon = {
             id: id,
@@ -51,8 +47,6 @@ export function encounterPokemon(id) {
         pokemon.shown++;
     }
     setPokedex(results);
-    // else pokemon.shown increment
-    // rewrite the results to local storage(setPokedex)
 }
 
 export function capturePokemon(id) {
@@ -62,4 +56,17 @@ export function capturePokemon(id) {
     // if no matching object -- create one
     // else update the shown key
     // rewrite results to local storage
+    let results = getPokedex();
+    const pokemon = findById(results, id);
+    if (!pokemon){
+        const newPokemon = {
+            id: id,
+            shown: 1,
+            preferred: 1
+        };
+        results.push(newPokemon);
+    } else {
+        pokemon.preferred++;
+    }
+    setPokedex(results);
 }
