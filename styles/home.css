@@ -12,7 +12,8 @@
 
 .pokemon img:hover {
   filter: none;
-  border: 3px solid red;
+  border: 3px solid  #efcb68ff;
+  ;
 }
 
 input[type="radio"] {
@@ -20,6 +21,21 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + img {
-  border: 3px solid red;
+  border: 3px solid #efcb68ff;
   filter: none;
+}
+.title img {
+  height: 200px;
+}
+body {
+  background-color: #e1efe6ff;
+}
+h2 {
+  color: #bb0a21ff;
+  /* font-weight: bold; */
+  font-family: 'Yomogi', cursive;;
+}
+button {
+  background-color: #bb0a21ff;
+  color: #e1efe6ff;
 }
