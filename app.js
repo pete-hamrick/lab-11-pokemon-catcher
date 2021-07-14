@@ -1,15 +1,19 @@
 // import functions and grab DOM elements
 import pokemon from './data/pokemon.js';
-import { capturePokemon, clearPokedex, encounterPokemon } from './storage-utils.js';
+import { capturePokemon, encounterPokemon, findById, getPokedex } from './storage-utils.js';
 
 const pokemon1Radio = document.getElementById('pokemon1-radio');
 const pokemon1Image = document.getElementById('pokemon1-img');
+// const pokemon1Stats = document.getElementById('pokemon1-stats');
 
 const pokemon2Radio = document.getElementById('pokemon2-radio');
 const pokemon2Image = document.getElementById('pokemon2-img');
+// const pokemon2Stats = document.getElementById('pokemon2-stats');
 
 const pokemon3Radio = document.getElementById('pokemon3-radio');
 const pokemon3Image = document.getElementById('pokemon3-img');
+// const pokemon3Stats = document.getElementById('pokemon3-stats');
+
 
 const submitButton = document.getElementById('submit');
 const playsCounter = document.getElementById('total-plays');
@@ -37,6 +41,12 @@ function renderRandomPokemon(){
     pokemon1Radio.checked = false;
     pokemon1Image.src = pokemon1.url_image;
     encounterPokemon(pokemon1.id);
+    // We want to show Pokemon appearances, and times captures
+    // assign pokemon1Appearances = [];
+    // we'll use getPokedex(start here, then use pokemon1 assign line below)
+    // assign pokemon1 = findByID(pokemon, item.id)
+    // pokemon1Appearances.push(pokemon1, pokemon)
+    // pokemon1Stats.textContent = `Appearances: ${pokemon1Appearances}`;
 
     pokemon2Radio.value = pokemon2.id;
     pokemon2Radio.checked = false;
@@ -54,14 +64,13 @@ function renderRandomPokemon(){
 renderRandomPokemon();
 // set event listeners 
 submitButton.addEventListener('click', ()=> {
-    console.log('I know how to click a button');
     const pokemonId = document.querySelector('input[type=radio]:checked');
     capturePokemon(pokemonId);
-    if (totalPlays < 2){
+    if (totalPlays < 4){
         renderRandomPokemon();
     } else {
         alert('You have played enough!');
-        clearPokedex();
+        // clearPokedex();
     }
     // get the chosen pokemon id (using input[type=radio]:checked selector)
     // update the preferred key on the chosen pokemon
