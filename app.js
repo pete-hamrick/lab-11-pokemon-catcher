@@ -1,5 +1,6 @@
 // import functions and grab DOM elements
 import pokemon from './data/pokemon.js';
+import { encounterPokemon } from './storage-utils.js';
 
 const pokemon1Radio = document.getElementById('pokemon1-radio');
 const pokemon1Image = document.getElementById('pokemon1-img');
@@ -32,18 +33,20 @@ function renderRandomPokemon(){
     let pokemon2 = pokemon[randNum2];
     let pokemon3 = pokemon[randNum3];
 
-    // update the shown key(increment counter) for each pokemon getPokedex(<id>)
     pokemon1Radio.value = pokemon1.id;
     pokemon1Radio.checked = false;
     pokemon1Image.src = pokemon1.url_image;
+    encounterPokemon(pokemon1.id);
 
     pokemon2Radio.value = pokemon2.id;
     pokemon2Radio.checked = false;
     pokemon2Image.src = pokemon2.url_image;
+    encounterPokemon(pokemon2.id);
 
     pokemon3Radio.value = pokemon3.id;
     pokemon3Radio.checked = false;
     pokemon3Image.src = pokemon3.url_image;
+    encounterPokemon(pokemon3.id);
 
     playsCounter.textContent = `Total plays: ${totalPlays}`;
 }
@@ -52,6 +55,8 @@ renderRandomPokemon();
 // set event listeners 
 submitButton.addEventListener('click', ()=> {
     console.log('I know how to click a button');
+    // get the chosen pokemon id (using input[type=radio]:checked selector)
+    // update the preferred key on the chosen pokemon
 });
   // get user input
   // use user input to update state 
