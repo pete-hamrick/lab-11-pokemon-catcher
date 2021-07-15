@@ -1,5 +1,5 @@
 import pokemon from './data/pokemon.js';
-import { capturePokemon, encounterPokemon, findById, getPokedex, clearPokedex } from './storage-utils.js';
+import { capturePokemon, encounterPokemon, findById, getPokedex } from './storage-utils.js';
 
 const pokemon1Radio = document.getElementById('pokemon1-radio');
 const pokemon1Image = document.getElementById('pokemon1-img');
@@ -79,10 +79,9 @@ renderRandomPokemon();
 submitButton.addEventListener('click', ()=> {
     const pokemonId = document.querySelector('input[type=radio]:checked');
     capturePokemon(pokemonId);
-    if (totalPlays < 4){
+    if (totalPlays < 10){
         renderRandomPokemon();
     } else {
-        alert('You have played enough!');
-        clearPokedex();
+        window.location.replace('./results/index.html');
     }
 });
