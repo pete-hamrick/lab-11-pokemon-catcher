@@ -1,4 +1,4 @@
-import { getPokedex, clearPokedex, encounterPokemon, capturePokemon } from '../storage-utils.js';
+import { getPokedex, clearPokedex, encounterPokemon, capturePokemon, setPokedex } from '../storage-utils.js';
 
 
 const test = QUnit.test;
@@ -48,15 +48,20 @@ test('does encounterPokemon create object if it is the first encounter', (expect
     expect.deepEqual(results, fakePokedex);
 });
 
-test('does capturePokemon create object if it is the first capture?', (expect) =>{
-    localStorage.removeItem('RESULTS');
+test('does capturePokemon increment preferred?', (expect) =>{
     const fakePokedex = [
-        { id: 1, shown: 1, preferred: 1 }, 
+        { id: 1, shown: 1, preferred: 0 }, 
     ];
+    setPokedex(fakePokedex);
     capturePokemon(1);
 
-    const resultsString = localStorage.getItem('RESULTS') || '[]';
-    const results = JSON.parse(resultsString);
+    const results = getPokedex();
+
+    const expected = {
+        id: 1,
+        shown: 1,
+        preferred: 1
+    };
     
-    expect.deepEqual(results, fakePokedex);
+    expect.deepEqual(results[0], expected);
 });
