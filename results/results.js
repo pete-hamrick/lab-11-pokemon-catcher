@@ -4,13 +4,11 @@ import pokemon from '../data/pokemon.js';
 const resultsArea = document.getElementById('results-area');
 
 const userPokedex = getPokedex();
-console.log(userPokedex);
 let names = [];
 let appearances = [];
 let captured = [];
 
 for (let item of userPokedex){
-    console.log(item.id);
     const userPokemon = findById(pokemon, item.id);
     names.push(userPokemon.pokemon);
     appearances.push(item.shown);

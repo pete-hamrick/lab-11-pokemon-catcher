@@ -1,6 +1,6 @@
-img {
+/* img {
     height: 100px;
-}
+} */
 
 #results-area {
     display: flex;
@@ -15,4 +15,24 @@ h1 {
 }
 body {
     justify-content: center;
+}
+p {
+    margin: 5px;
+
+}
+/* #resultsArea {
+    width: 200px;
+} */
+.result {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+.result img {
+    height: 100px;
+    object-fit: contain;
+    align-items: center;
+}
+.result p {
+    text-align: center;
 }
