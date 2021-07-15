@@ -37,6 +37,7 @@ function renderRandomPokemon(){
     let pokemon2 = pokemon[randNum2];
     let pokemon3 = pokemon[randNum3];
     encounterPokemon(pokemon1.id);
+    console.log(pokemon1.id);
     encounterPokemon(pokemon2.id);
     encounterPokemon(pokemon3.id);
     const pokedex = getPokedex();
@@ -49,7 +50,6 @@ function renderRandomPokemon(){
     const p1Captures = poke1.preferred; 
     pokemon1Seen.textContent = `Appearances: ${p1Seen}`;
     pokemon1Captures.textContent = `Captures: ${p1Captures}`;
-    
     
     pokemon2Radio.value = pokemon2.id;
     pokemon2Radio.checked = false;
@@ -69,6 +69,7 @@ function renderRandomPokemon(){
     const p3Captures = poke3.preferred; 
     pokemon3Seen.textContent = `Appearances: ${p3Seen}`;
     pokemon3Captures.textContent = `Captures: ${p3Captures}`;
+    console.log(poke1.preferred, poke2.preferred, poke3.preferred);
     
     playsCounter.textContent = `Total plays: ${totalPlays}`;
 }
@@ -78,8 +79,8 @@ renderRandomPokemon();
 // set event listeners 
 submitButton.addEventListener('click', ()=> {
     const pokemonId = document.querySelector('input[type=radio]:checked');
-    capturePokemon(pokemonId);
-    if (totalPlays < 10){
+    capturePokemon(Number(pokemonId.value));
+    if (totalPlays < 5){
         renderRandomPokemon();
     } else {
         window.location.replace('./results/index.html');

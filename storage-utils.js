@@ -39,15 +39,6 @@ export function encounterPokemon(id) {
 export function capturePokemon(id) {
     let results = getPokedex();
     const pokemon = findById(results, id);
-    if (!pokemon){
-        const newPokemon = {
-            id: id,
-            shown: 1,
-            preferred: 1
-        };
-        results.push(newPokemon);
-    } else {
-        pokemon.preferred++;
-    }
+    pokemon.preferred++;
     setPokedex(results);
 }
