@@ -37,7 +37,6 @@ function renderRandomPokemon(){
     let pokemon2 = pokemon[randNum2];
     let pokemon3 = pokemon[randNum3];
     encounterPokemon(pokemon1.id);
-    console.log(pokemon1.id);
     encounterPokemon(pokemon2.id);
     encounterPokemon(pokemon3.id);
     const pokedex = getPokedex();
@@ -69,7 +68,6 @@ function renderRandomPokemon(){
     const p3Captures = poke3.preferred; 
     pokemon3Seen.textContent = `Appearances: ${p3Seen}`;
     pokemon3Captures.textContent = `Captures: ${p3Captures}`;
-    console.log(poke1.preferred, poke2.preferred, poke3.preferred);
     
     playsCounter.textContent = `Total plays: ${totalPlays}`;
 }

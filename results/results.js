@@ -1,7 +1,8 @@
-import { getPokedex, findById } from '../storage-utils.js';
+import { getPokedex, findById, clearPokedex } from '../storage-utils.js';
 import pokemon from '../data/pokemon.js';
 
 const resultsArea = document.getElementById('results-area');
+const resetButton = document.getElementById('reset-game');
 
 const userPokedex = getPokedex();
 let names = [];
@@ -37,6 +38,7 @@ for (let item of userPokedex){
     resultsArea.appendChild(resultDiv);
     
 }
+
 // Chart data functions
 let nameArr = userPokedex.map(item => {
     const pokemonName = findById(pokemon, item.id);
@@ -52,7 +54,7 @@ const capturesArr = userPokedex.map(item => {
 });
 // Chart script
 const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
+new Chart(ctx, {
     type: 'bar',
     data: {
         labels: nameArr,
@@ -77,9 +79,13 @@ const myChart = new Chart(ctx, {
             ],
             borderWidth: 1
         }]
-
+        
     },
     options: {
         indexAxis: 'y'
     }
+});
+resetButton.addEventListener('click', () =>{
+    window.location.replace('../index.html');
+    clearPokedex();
 });
