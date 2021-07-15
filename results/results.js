@@ -20,6 +20,9 @@ for (let item of userPokedex){
     const pokemonImage = document.createElement('img');
     pokemonImage.src = userPokemon.url_image;
 
+    const nameP = document.createElement('p'); 
+    nameP.textContent = `Pokemon: ${userPokemon.pokemon}`;
+
     const appearancesP = document.createElement('p');
     appearancesP.textContent = `Appeared: ${item.shown} times`;
     
@@ -30,6 +33,7 @@ for (let item of userPokedex){
     resultDiv.classList.add('result');
 
     resultDiv.appendChild(pokemonImage);
+    resultDiv.appendChild(nameP);
     resultDiv.appendChild(appearancesP);
     resultDiv.appendChild(capturedP);
 
