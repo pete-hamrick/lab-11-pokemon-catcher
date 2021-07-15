@@ -1,0 +1,18 @@
+img {
+    height: 100px;
+}
+
+#results-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+h1 {
+    font-family: 'Yomogi', cursive;
+    font-size: 2rem;
+    color: #bb0a21ff;
+    margin-left: 40%;
+}
+body {
+    justify-content: center;
+}
